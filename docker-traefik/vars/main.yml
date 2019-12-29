@@ -1,9 +1,12 @@
 ---
 
-dir_traefik: '/home/user/traefik'   # directory used to store traefik config and letsencrypt certificate
-traefik_network: 'web'              # network on which traefik will be connected (containers exposed by traefik need to be placed on same network)
-traefik_image: 'traefik:v2.0'       # image used for the container. Tested with traefik v2.0, should work with 2.1
-traefik_dns_provider: 'cloudflare'  # dns provider (list available at https://docs.traefik.io/v2.0/https/acme/#providers)
+dir_traefik: '/home/user/traefik'           # directory used to store traefik config and letsencrypt certificate
+traefik_network: 'web'                      # network on which traefik will be connected (containers exposed by traefik need to be placed on same network)
+traefik_image: 'traefik:v2.0'               # image used for the container. Tested with traefik v2.0, should work with 2.1
+traefik_dns_provider: 'cloudflare'          # dns provider (list available at https://docs.traefik.io/v2.0/https/acme/#providers)
+#traefik_domain: 'traefik.{{ my_domain }}'  # needed only if you want dashboard
+
+#my_domain: 'www.mydomain.tld'      # domain (for dashboard)
 
 acme_email: 'my@email.tld'          # email used for letsencrypt registration
 
