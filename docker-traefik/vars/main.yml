@@ -1,0 +1,19 @@
+---
+
+dir_traefik: '/home/user/traefik'   # directory used to store traefik config and letsencrypt certificate
+traefik_network: 'web'              # network on which traefik will be connected (containers exposed by traefik need to be placed on same network)
+traefik_image: 'traefik:v2.0'       # image used for the container. Tested with traefik v2.0, should work with 2.1
+traefik_dns_provider: 'cloudflare'  # dns provider (list available at https://docs.traefik.io/v2.0/https/acme/#providers)
+
+acme_email: 'my@email.tld'          # email used for letsencrypt registration
+
+cf_api_email: 'my@email.tld'        # email used for cloudflare
+cf_api_key: 'API_KEY'               # api key (see security notes at the bottom of the file)
+
+
+## Security notes
+# For the API key, some providers offer the ability to limit the rights given to a certain key
+# it is recommended to use a key with limited privileges.
+# To store the value, the best practice is to use Ansible-Vault. 
+# More info at: https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html#best-practices-for-variables-and-vaults
+# (value in this file should then be: cf_api_key: '{{ vault_cf_api_key }}')
